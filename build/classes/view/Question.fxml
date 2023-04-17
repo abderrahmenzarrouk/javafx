@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import java.lang.String?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.QuestionController">
+   <children>
+      <AnchorPane fx:id="main_form" prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <BorderPane layoutX="207.0" layoutY="151.0" prefHeight="600.0" prefWidth="1100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <top>
+                  <AnchorPane prefHeight="45.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <AnchorPane layoutX="54.0" layoutY="-3.0" prefHeight="35.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <FontAwesomeIconView glyphName="USERS" layoutX="22.0" layoutY="27.0" size="1.5em" />
+                              <Label layoutX="53.0" layoutY="12.0" text="Diabety ">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Button layoutX="1032.0" layoutY="11.0" minHeight="21.0" mnemonicParsing="false" onAction="#close" prefHeight="21.0" prefWidth="54.0" styleClass="close" stylesheets="@dashboardDesign.css" />
+                              <FontAwesomeIconView glyphName="CLOSE" layoutX="1054.0" layoutY="26.0" text="" />
+                              <Button layoutX="978.0" layoutY="11.0" minHeight="21.0" mnemonicParsing="false" onAction="#minimize" prefHeight="21.0" prefWidth="54.0" styleClass="minimize" stylesheets="@dashboardDesign.css" />
+                              <FontAwesomeIconView glyphName="MINUS" layoutX="1000.0" layoutY="25.0" />
+                           </children></AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </top>
+               <left>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <AnchorPane layoutX="-23.0" layoutY="87.0" prefHeight="555.0" prefWidth="200.0" styleClass="nav-form" stylesheets="@dashboardDesign.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <Button fx:id="btn_question" layoutX="40.0" layoutY="193.0" mnemonicParsing="false" onAction="#switchform" prefHeight="35.0" prefWidth="132.0" styleClass="nav-btn" stylesheets="@dashboardDesign.css" text="Question" />
+                              <Button fx:id="btn_test" layoutX="38.0" layoutY="228.0" mnemonicParsing="false" onAction="#switchform" prefHeight="35.0" prefWidth="124.0" styleClass="nav-btn" stylesheets="@dashboardDesign.css" text="Stats des tests" />
+                              <FontAwesomeIconView fill="#fcfcfc" glyphName="USER" layoutX="54.0" layoutY="110.0" size="7em" />
+                              <Label layoutX="45.0" layoutY="122.0" text="Bienvenue" textFill="WHITE">
+                                 <font>
+                                    <Font name="Tahoma" size="17.0" />
+                                 </font>
+                              </Label>
+                              <Line endX="100.0" layoutX="71.0" layoutY="157.0" startX="-41.5" stroke="WHITE" />
+                              <FontAwesomeIconView fill="WHITE" glyphName="PLUS" layoutX="24.0" layoutY="215.0" />
+                              <Button fx:id="btn_listtest" layoutX="38.0" layoutY="263.0" mnemonicParsing="false" onAction="#switchform" prefHeight="35.0" prefWidth="124.0" styleClass="nav-btn" stylesheets="@dashboardDesign.css" text="Tests" />
+                              <FontAwesomeIconView fill="WHITE" glyphName="BAR_CHART" layoutX="23.0" layoutY="284.0" text="" />
+                              <FontAwesomeIconView fill="WHITE" glyphName="BAR_CHART" layoutX="23.0" layoutY="250.0" />
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </left>
+               <center>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <AnchorPane fx:id="question_form" layoutX="63.0" layoutY="78.0" prefHeight="555.0" prefWidth="900.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="533.0" prefWidth="873.0" stylesheets="@dashboardDesign.css">
+                                 <styleClass>
+                                    <String fx:value="white-bg" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                                 <children>
+                                    <Label layoutX="25.0" layoutY="299.0" text="Enonce :">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="440.0" layoutY="299.0" text="première Reponse :">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="add_premierereponse_id" layoutX="580.0" layoutY="296.0" prefHeight="26.0" prefWidth="161.0" styleClass="textfield" stylesheets="@dashboardDesign.css" />
+                                    <Label layoutX="440.0" layoutY="334.0" text="Deuxième Reponse :">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="add_deuxiemereponse_id" layoutX="581.0" layoutY="331.0" prefHeight="26.0" prefWidth="165.0" styleClass="textfield" stylesheets="@dashboardDesign.css" />
+                                    <Label layoutX="440.0" layoutY="373.0" text="Reponse Idea :">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="add_reponseideal_id" layoutX="581.0" layoutY="370.0" prefHeight="26.0" prefWidth="158.0" styleClass="textfield" stylesheets="@dashboardDesign.css" />
+                                    <Label layoutX="25.0" layoutY="383.0" text="Signification :">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Button fx:id="question_clear_id" layoutX="391.0" layoutY="455.0" mnemonicParsing="false" onAction="#questionReset" prefHeight="42.0" prefWidth="91.0" styleClass="clear-btn" stylesheets="@dashboardDesign.css" text="Clear" />
+                                    <Button fx:id="question_supprimer_id" layoutX="500.0" layoutY="455.0" mnemonicParsing="false" onAction="#questionDelete" prefHeight="42.0" prefWidth="91.0" styleClass="delete-btn" stylesheets="@dashboardDesign.css" text="Supprimer" />
+                                    <Button fx:id="question_modifier_id" layoutX="612.0" layoutY="455.0" mnemonicParsing="false" onAction="#questionUpdate" prefHeight="42.0" prefWidth="91.0" styleClass="update-btn" stylesheets="@dashboardDesign.css" text="Modifier" />
+                                    <Button fx:id="question_ajouter_id" layoutX="724.0" layoutY="455.0" mnemonicParsing="false" onAction="#ajouterquestion" prefHeight="42.0" prefWidth="91.0" styleClass="add-btn" stylesheets="@dashboardDesign.css" text="Ajouter" />
+                                    <TextArea fx:id="add_enonce_id" layoutX="121.0" layoutY="283.0" prefHeight="78.0" prefWidth="260.0" styleClass="textfield" stylesheets="@dashboardDesign.css" wrapText="true" />
+                                    <TextArea fx:id="add_signification_id" layoutX="121.0" layoutY="383.0" prefHeight="124.0" prefWidth="258.0" styleClass="textfield" stylesheets="@dashboardDesign.css" wrapText="true" />
+                                    <TextField fx:id="ques_id" layoutX="411.0" layoutY="411.0" visible="false" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="24.0" layoutY="24.0" prefHeight="268.0" prefWidth="853.0" stylesheets="@dashboardDesign.css">
+                                 <styleClass>
+                                    <String fx:value="white-bg" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                                 <children>
+                                    <TableView fx:id="addquestion_tableView" layoutX="7.0" layoutY="54.0" onMouseClicked="#addQuestionSelect" prefHeight="200.0" prefWidth="841.0">
+                                      <columns>
+                                        <TableColumn fx:id="tab_enonce_id" minWidth="0.0" prefWidth="147.0" text="              Enonce" />
+                                        <TableColumn fx:id="tab_premierereponse_id" minWidth="0.0" prefWidth="144.0" text="Première Reponse" />
+                                          <TableColumn fx:id="tab_deuxièmereponse_id" prefWidth="137.0" text="Deuxème Response" />
+                                          <TableColumn fx:id="tab_reponseideal_id" prefWidth="137.0" text="       Reponse ideal" />
+                                          <TableColumn fx:id="tab_signification_id" prefWidth="275.0" text="                               Signification" />
+                                          <TableColumn fx:id="teb_quesid" prefWidth="136.0" text="id" visible="false" />
+                                      </columns>
+                                    </TableView>
+                                    <TextField fx:id="addquestion_search" layoutX="44.0" layoutY="14.0" onAction="#addQuestionSearch" promptText="Rechercher" styleClass="search" stylesheets="@dashboardDesign.css" />
+                                 </children>
+                              </AnchorPane>
+                           </children></AnchorPane>
+                        <AnchorPane fx:id="test_form" layoutX="1.0" prefHeight="556.0" prefWidth="910.0" visible="false">
+                           <children>
+                              <AnchorPane layoutX="14.0" layoutY="9.0" prefHeight="535.0" prefWidth="877.0" stylesheets="@dashboardDesign.css">
+                                 <styleClass>
+                                    <String fx:value="white-bg" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                                 <children>
+                                    <AnchorPane layoutX="11.0" layoutY="14.0" prefHeight="192.0" prefWidth="856.0" stylesheets="@dashboardDesign.css">
+                                       <styleClass>
+                                          <String fx:value="white-bg" />
+                                          <String fx:value="shadow" />
+                                       </styleClass>
+                                       <children>
+                                          <AnchorPane layoutX="14.0" layoutY="11.0" prefHeight="171.0" prefWidth="261.0" styleClass="card" stylesheets="@dashboardDesign.css">
+                                             <children>
+                                                <FontAwesomeIconView fill="WHITE" glyphName="BAR_CHART" layoutX="29.0" layoutY="108.0" size="6em" text="" wrappingWidth="13.714285850524902" />
+                                                <Label layoutX="95.0" layoutY="125.0" text="Total des tests" textFill="WHITE">
+                                                   <font>
+                                                      <Font name="Tahoma" size="20.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="total_tests" alignment="CENTER_RIGHT" layoutX="105.0" layoutY="22.0" prefHeight="34.0" prefWidth="142.0" text="0" textFill="WHITE">
+                                                   <font>
+                                                      <Font name="Arial" size="25.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane layoutX="298.0" layoutY="11.0" prefHeight="171.0" prefWidth="261.0" styleClass="card" stylesheets="@dashboardDesign.css">
+                                             <children>
+                                                <FontAwesomeIconView fill="WHITE" glyphName="CHECK" layoutX="25.0" layoutY="108.0" size="6em" wrappingWidth="13.714285850524902" />
+                                                <Label layoutX="10.0" layoutY="127.0" text="Nombre des utilisateurs non atteint" textFill="WHITE">
+                                                   <font>
+                                                      <Font name="Tahoma" size="16.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="positive_test" alignment="CENTER_RIGHT" layoutX="101.0" layoutY="22.0" prefHeight="34.0" prefWidth="142.0" text="0" textFill="WHITE">
+                                                   <font>
+                                                      <Font name="Arial" size="25.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane layoutX="581.0" layoutY="11.0" prefHeight="171.0" prefWidth="261.0" styleClass="card" stylesheets="@dashboardDesign.css">
+                                             <children>
+                                                <Label layoutX="33.0" layoutY="121.0" text="Nombre des utilisateurs atteint" textFill="WHITE">
+                                                   <font>
+                                                      <Font name="Tahoma" size="16.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="negative_test" alignment="CENTER_RIGHT" layoutX="97.0" layoutY="22.0" prefHeight="34.0" prefWidth="142.0" text="0" textFill="WHITE">
+                                                   <font>
+                                                      <Font name="Arial" size="25.0" />
+                                                   </font>
+                                                </Label>
+                                                <FontAwesomeIconView fill="WHITE" glyphName="MINUS" layoutX="30.0" layoutY="111.0" size="6EM" />
+                                             </children>
+                                          </AnchorPane>
+                                       </children>
+                                    </AnchorPane>
+                                    <PieChart fx:id="piechart" layoutX="160.0" layoutY="216.0" prefHeight="293.0" prefWidth="529.0" title="Tests de diabet" />
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="test_tab_form" layoutX="2.0" layoutY="3.0" prefHeight="547.0" prefWidth="900.0">
+                           <children>
+                              <AnchorPane fx:id="list_test_form" layoutX="14.0" layoutY="14.0" prefHeight="522.0" prefWidth="872.0" stylesheets="@dashboardDesign.css">
+                                 <styleClass>
+                                    <String fx:value="white-bg" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                                 <children>
+                                    <TableView fx:id="listdestests_id" layoutX="30.0" layoutY="52.0" onMouseClicked="#addTestSelect" prefHeight="399.0" prefWidth="834.0">
+                                      <columns>
+                                        <TableColumn fx:id="test_email_id" prefWidth="323.0" text="Email" />
+                                        <TableColumn fx:id="test_date_id" minWidth="0.0" prefWidth="255.0" text="Date" />
+                                          <TableColumn fx:id="test_resultat_id" minWidth="0.0" prefWidth="255.0" text="Resultat" />
+                                          <TableColumn fx:id="test_col_id" minWidth="0.0" prefWidth="255.0" text="id" visible="false" />
+                                      </columns>
+                                    </TableView>
+                                    <Button layoutX="702.0" layoutY="464.0" mnemonicParsing="false" onAction="#testDelete" styleClass="delete-btn" stylesheets="@dashboardDesign.css" text="Supprimer Test" />
+                                    <TextField fx:id="t_id" layoutX="209.0" layoutY="452.0" visible="false" />
+                                    <TextField fx:id="min_result_id" layoutX="30.0" layoutY="14.0" prefHeight="25.0" prefWidth="85.0" styleClass="textfield" stylesheets="@dashboardDesign.css" />
+                                    <TextField fx:id="max_result_id" layoutX="124.0" layoutY="15.0" prefHeight="25.0" prefWidth="85.0" styleClass="textfield" stylesheets="@dashboardDesign.css" />
+                                    <Button fx:id="filter_id" layoutX="226.0" layoutY="14.0" mnemonicParsing="false" onAction="#filterByResult" prefHeight="26.0" prefWidth="70.0" styleClass="add-btn" stylesheets="@dashboardDesign.css" text="filter" />
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </center>
+            </BorderPane>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>
